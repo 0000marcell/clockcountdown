@@ -16,7 +16,8 @@ const run = async () => {
     if (sec === '00'){
       sec = '59'
       if (min === '00') {
-        execSync(`ffplay ./audio.mp3`)
+        execSync(`ffplay -nodisp -autoexit ${__dirname}/audio.mp3`, 
+          {  stdio: 'ignore' })
         console.log('time over')
         clearInterval(interval)
         return
