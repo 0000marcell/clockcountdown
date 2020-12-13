@@ -1,14 +1,10 @@
-const playSound = require('playSound')
-
-const clock = () => {
-  let min = process.argv[2] || 30
+const clock = (min = '30', tick, finished) => {
   let sec = '00'
   const interval = setInterval(() => {
     if (sec === '00'){
       sec = '59'
       if (min === '00') {
-        playSound() 
-        console.log('time over')
+        finished()
         clearInterval(interval)
         return
       }
@@ -22,7 +18,7 @@ const clock = () => {
         sec = `0${sec}` 
       }
     }
-    render(`${min}:${sec}`)
+    tick(min, sec)
   }, 1000)
 } 
 

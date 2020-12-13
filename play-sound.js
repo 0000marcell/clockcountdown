@@ -5,6 +5,4 @@ const playSound = () => {
     {  stdio: 'ignore' })
 }
 
-playSound()
-
 module.exports = playSound

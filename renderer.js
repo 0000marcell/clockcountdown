@@ -1,12 +1,17 @@
-const figlet = require('node-figlet')
+const { spawn } = require('child_process')
 
-const render = (str) => {
-  figlet(str,[""], function (ascii){
-    console.clear()
-    console.log(`${ascii}`)
+const figlet = (text, opts) => {
+  const fig = spawn("figlet", [...opts.split(' '), text])
+  fig.stdout.on('data', function (data) {
+    console.log(data.toString('utf8'))
   });
 } 
 
-module.exports = render 
+const render = (title, clock) => {
+  let font = 'o8'
+  figlet(title.toUpperCase(), `-f term -c -t`) 
+  figlet(clock, `-f ${font} -c -t`) 
+  console.clear()
+}
 
-//export default print
+module.exports = render 

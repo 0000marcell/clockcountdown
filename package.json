@@ -11,7 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "command-exists": "^1.2.9",
-    "node-figlet": "^0.0.0"
+    "command-exists": "^1.2.9"
   }
 }
