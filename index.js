@@ -4,11 +4,35 @@ const render = require('./renderer')
 const clock = require('./clock')
 const playSound = require('./play-sound')
 const fileReader = require('./file-reader')
+const DB = require('./db')
+const schema = require('./schema')
+
+
+if(!schema()) {
+  console.log('Error creating database!!!') 
+  return 
+}
+
+const db = new DB()
+
+const saveCompletedTask = async (title, time) => {
+  try {
+    await db.save(title, time)
+    return true
+  } catch(err) {
+    console.error(err)  
+    return false
+  }
+} 
 
 const startTheClock = (title, time, clocks) => {
   clock(time, (min, sec) => {
     render(title, `${min}:${sec}`)
-  }, () => {
+  }, async () => {
+    const response = await saveCompletedTask(title, time)
+    if(!response) {
+      return
+    }
     playSound()
     if(clocks.length) {
       let item = clocks[0].split(':')

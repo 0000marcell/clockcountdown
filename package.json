@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "command-exists": "^1.2.9"
+    "command-exists": "^1.2.9",
+    "sqlite3": "^5.0.0"
   }
 }
