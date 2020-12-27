@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "command-exists": "^1.2.9",
+    "express": "^4.17.1",
+    "socket.io": "^3.0.4",
     "sqlite3": "^5.0.0"
   }
 }

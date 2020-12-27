@@ -19,6 +19,4 @@ const fileReader = (file) => {
   return lines
 }
 
-fileReader('./monday')
-
 module.exports = fileReader
