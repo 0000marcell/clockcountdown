@@ -11,7 +11,7 @@ const schema = () => {
     });
 
     try {
-      db.run('CREATE TABLE tasks(title text, time text)')
+      db.run('CREATE TABLE tasks(title text, time text, date text)')
     }catch(err) {
       console.error(err) 
       return false

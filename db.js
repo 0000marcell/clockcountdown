@@ -10,9 +10,9 @@ class DB {
     });
   }
 
-  save(title, time) { 
+  save(title, time, date) { 
     return new Promise((resolve, reject) => {
-      this.db.run(`INSERT INTO tasks(title1, time) VALUES(?, ?)`, [title, time], function(err) {
+      this.db.run(`INSERT INTO tasks(title, time, date) VALUES(?, ?, ?)`, [title, time, date], function(err) {
         if (err) {
           reject(err.message)
         }
